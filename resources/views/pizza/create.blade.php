@@ -6,7 +6,6 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">Menu</div>
-
                 <div class="card-body">
                     <ul class="list-group">
                         <a href="#" class="list-group-item list-group-item-action">View</a>
@@ -14,18 +13,22 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Pizza</div>
-                @if(count($errors) > 0)
+            @if(count($errors) > 0)
+            <div class="mt-3 card">
+                <div class="card-body">
                     <div class="alert alert-danger">
                         @foreach ($errors->all() as $error)
                             <p>{{ $error }}</p>
                         @endforeach
                     </div>
-                @endif
-                <form action="{{ route('pizza.store') }}" method="POST">
+                </div>
+            </div>
+            @endif
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Pizza</div>
+                <form action="{{ route('pizza.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="card-body">
                         <div class="form-group">
