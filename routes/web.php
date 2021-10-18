@@ -30,5 +30,8 @@ Route::group([
     Route::get('/pizza/edit/{id}', [App\Http\Controllers\PizzaController::class, 'edit'])->name('pizza.edit');
     Route::put('/pizza/update/{id}', [App\Http\Controllers\PizzaController::class, 'update'])->name('pizza.update');
     Route::delete('/pizza/delete/{id}', [App\Http\Controllers\PizzaController::class, 'destroy'])->name('pizza.destroy');
+    //user order
+    Route::get('/pizza/order', [App\Http\Controllers\UserOrderController::class, 'index'])->name('pizza.order');
+    Route::post('/pizza/status/{id}', [App\Http\Controllers\UserOrderController::class, 'changeStatus'])->name('order.status');
 });
 
