@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $user->name = 'Admin';
         $user->email = 'admin@gmail.com';
         $user->password = bcrypt('password');
-        $user->id_admin = 1;
+        $user->is_admin = 1;
         $user->save();
     }
 }
