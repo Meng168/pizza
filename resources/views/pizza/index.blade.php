@@ -30,7 +30,7 @@
                     @endif
                     <table class="table table-bordered">
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th scope="col">#</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Name</th>
@@ -39,8 +39,7 @@
                                 <th scope="col">S.price</th>
                                 <th scope="col">M.price</th>
                                 <th scope="col">L.price</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,7 +48,7 @@
                                     <tr>
                                         <th scope="row">{{ $key+1 }}</th>
                                         <td>
-                                            <img src="{{ Storage::url($pizza->image) }}" width="80">
+                                            <img src="{{ Storage::url($pizza->image) }}" width="50" height="50">
                                         </td>
                                         <td>{{ $pizza->name }}</td>
                                         <td>{{ $pizza->description }}</td>
@@ -59,11 +58,9 @@
                                         <td>{{ $pizza->large_pizza_price }}</td>
                                         <td>
                                             <a href="{{ route('pizza.edit',$pizza->id) }}">
-                                                <button class="btn btn-primary">Edit</button>
+                                                <button class="btn btn-primary btn-sm">Edit</button>
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pizza->id }}">Delete</button>
                                             </a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pizza->id }}">Delete</button>
                                         </td>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal{{ $pizza->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -5,12 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Order</div>
+                <div class="card-header">Order
+                    <a href="" style="float: right">View Pizza</a>
+                    <p style="float: right">&nbsp;||&nbsp;</p>
+                    <a href="{{ route('pizza.create') }}" style="float: right">Add Pizza</a>
+                </div>
 
                 <div class="card-body">
+
                     <table class="table table-bordered">
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th scope="col">User</th>
                                 <th scope="col">Phone/Email</th>
                                 <th scope="col">Date/Time</th>

@@ -13,15 +13,19 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('frontpage');
+Route::get('/pizza/{id}', [App\Http\Controllers\FrontendController::class, 'show'])->name('pizza.show');
+Route::post('/make/order', [App\Http\Controllers\FrontendController::class, 'store'])->name('order.store');
 //login or not
-Route::group([
+//prefix : get('admin/pizza')
+Route::group(['prefix' => 'admin',
     'middleware' => 'admin'
 ], function () {
     Route::get('/pizza', [App\Http\Controllers\PizzaController::class, 'index'])->name('pizza.index');
@@ -31,7 +35,7 @@ Route::group([
     Route::put('/pizza/update/{id}', [App\Http\Controllers\PizzaController::class, 'update'])->name('pizza.update');
     Route::delete('/pizza/delete/{id}', [App\Http\Controllers\PizzaController::class, 'destroy'])->name('pizza.destroy');
     //user order
-    Route::get('/pizza/order', [App\Http\Controllers\UserOrderController::class, 'index'])->name('pizza.order');
+    Route::get('/user/order', [App\Http\Controllers\UserOrderController::class, 'index'])->name('pizza.order');
     Route::post('/pizza/status/{id}', [App\Http\Controllers\UserOrderController::class, 'changeStatus'])->name('order.status');
 });
 
