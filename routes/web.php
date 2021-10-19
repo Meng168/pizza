@@ -37,5 +37,7 @@ Route::group(['prefix' => 'admin',
     //user order
     Route::get('/user/order', [App\Http\Controllers\UserOrderController::class, 'index'])->name('pizza.order');
     Route::post('/pizza/status/{id}', [App\Http\Controllers\UserOrderController::class, 'changeStatus'])->name('order.status');
+    // display all customer
+    Route::get('/customers', [App\Http\Controllers\UserOrderController::class, 'customers'])->name('customers');
 });
 
