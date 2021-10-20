@@ -16,7 +16,7 @@ class PizzaController extends Controller
      */
     public function index()
     {
-        $pizzas = Pizza::paginate(2);
+        $pizzas = Pizza::paginate(10);
         return view('pizza.index', compact('pizzas'));
     }
 
@@ -48,7 +48,11 @@ class PizzaController extends Controller
             'category' => $request->category,
             'image' => $path
         ]);
-        return redirect()->route('pizza.index')->with('message', 'Pizza added successfully!');
+        $notification = array(
+            'message' => 'Pizza added successfully!',
+            'alert-type' => 'success'
+        );
+        return back()->with($notification);
     }
 
     /**
@@ -71,7 +75,9 @@ class PizzaController extends Controller
     public function edit($id)
     {
         $pizza = Pizza::find($id);
-        return view('pizza.edit', compact('pizza'));
+        $post = Pizza::where('id', $id)->first();
+        $category = Pizza::select('category')->groupBy('category')->get();
+        return view('pizza.edit', compact('pizza', 'category', 'post'));
     }
 
     /**

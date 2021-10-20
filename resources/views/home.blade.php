@@ -24,7 +24,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($orders as $order)
+                            @forelse ($orders as $order)
                                 <tr>
                                     {{-- user នៅ class model --}}
                                     <td>{{ $order->user->name }}</td>
@@ -44,7 +44,9 @@
                                     <td>{{ $order->body }}</td>
                                     <td>{{ $order->status }}</td>
                                 </tr>
-                            @endforeach
+                                @empty
+
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -52,16 +54,17 @@
         </div>
     </div>
 </div>
+
 <style>
     a.list-group-item{
         font-size: 18px;
     }
     a.list-group-item:hover{
-        background-color: red;
+        background-color: #e63946;
         color: #fff;
     }
     .card-header{
-        background-color: red;
+        background-color: #e63946;
         color: #fff;
         font-size: 20px
     }

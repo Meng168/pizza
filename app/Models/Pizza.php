@@ -9,4 +9,5 @@ class Pizza extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
 }

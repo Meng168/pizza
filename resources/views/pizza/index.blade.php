@@ -50,8 +50,8 @@
                                         <td>
                                             <img src="{{ Storage::url($pizza->image) }}" width="50" height="50">
                                         </td>
-                                        <td>{{ $pizza->name }}</td>
-                                        <td>{{ $pizza->description }}</td>
+                                        <td>{{ Str::limit($pizza->name, 10) }}</td>
+                                        <td>{{ Str::limit($pizza->description, 8) }}</td>
                                         <td>{{ $pizza->category }}</td>
                                         <td>{{ $pizza->small_pizza_price }}</td>
                                         <td>{{ $pizza->medium_pizza_price }}</td>
@@ -59,8 +59,8 @@
                                         <td>
                                             <a href="{{ route('pizza.edit',$pizza->id) }}">
                                                 <button class="btn btn-primary btn-sm">Edit</button>
-                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pizza->id }}">Delete</button>
                                             </a>
+                                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pizza->id }}">Delete</button>
                                         </td>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal{{ $pizza->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -9,10 +9,10 @@
 
                 <div class="card-body">
                     <form action="{{ route('frontpage') }}" method="GET">
-                        <a href="/" class="list-group-item list-group-item-action">Back</a>
+                        <a href="/" class="list-group-item list-group-item-action​" style="color: #fb6107">Back</a>
                         <input type="submit" class="list-group-item list-group-item-action" name="category" value="Vegetarian">
                         <input type="submit" class="list-group-item list-group-item-action" name="category" value="Nonvegetarian">
-                        <input type="submit" class="list-group-item list-group-item-action" name="category" value="Tranditional">
+                        <input type="submit" class="list-group-item list-group-item-action" name="category" value="Traditional">
                     </form>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <div class="row">
                         @forelse ($pizzas as $pizza)
                             <div class="text-center col-md-4" style="border: 1px solid #ccc">
-                                <img src="{{ Storage::url($pizza->image) }}" class="img-thumbnail" style="width: 100%" alt="">
+                                <img src="{{ Storage::url($pizza->image) }}" class="img-thumbnail" style="width: 100%; height: 50%; object-fit: cover; object-position: center" alt="">
                                 <p>{{ $pizza->name }}</p>
                                 <p>{{ $pizza->description }}</p>
                                 <a href="{{ route('pizza.show', $pizza->id) }}">
@@ -37,20 +37,27 @@
                         @endforelse
                     </div>
                 </div>
+                <div class="ml-1">
+                    {{ $pizzas->links() }}
+                </div>
             </div>
         </div>
     </div>
 </div>
 <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
     a.list-group-item{
         font-size: 18px;
     }
     a.list-group-item:hover{
-        background-color: red;
-        color: #fff;
+        background-color: #e63946;
+        color: #fff!important;
     }
     .card-header{
-        background-color: red;
+        background-color: #e63946;
         color: #fff;
         font-size: 20px
     }

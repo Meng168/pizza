@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Customers
-                    <a href="" style="float: right">View Pizza</a>
+                    <a href="{{ route('pizza.order') }}" style="float: right">View Pizza</a>
                     <p style="float: right">&nbsp;||&nbsp;</p>
                     <a href="{{ route('pizza.create') }}" style="float: right">Add Pizza</a>
                 </div>

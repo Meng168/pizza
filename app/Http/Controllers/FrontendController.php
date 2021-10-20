@@ -10,10 +10,10 @@ class FrontendController extends Controller
 {
     public function index(Request $request){
         if(!$request->category){
-            $pizzas = Pizza::latest()->get();
+            $pizzas = Pizza::latest()->paginate(15);
             return view('frontpage.frontpage', compact('pizzas'));
         }
-        $pizzas = Pizza::where('category', $request->category)->get();
+        $pizzas = Pizza::where('category', $request->category)->paginate(15);
         return view('frontpage.frontpage', compact('pizzas'));
     }
     public function show($id){

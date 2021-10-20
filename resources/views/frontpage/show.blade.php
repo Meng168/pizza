@@ -63,11 +63,11 @@
         font-size: 18px;
     }
     a.list-group-item:hover{
-        background-color: red;
+        background-color: #e63946;
         color: #fff;
     }
     .card-header{
-        background-color: red;
+        background-color: #e63946;
         color: #fff;
         font-size: 20px
     }

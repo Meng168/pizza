@@ -27,8 +27,6 @@
                                 <th scope="col">Message</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Accept</th>
-                                <th scope="col">Reject</th>
-                                <th scope="col">Complete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,13 +51,13 @@
                                     <td>{{ $order->status }}</td>
                                     <form action="{{ route('order.status', $order->id) }}" method="POST">
                                     @csrf
-                                        <td>
-                                            <input name="status" class="btn btn-primary btn-sm" type="submit" value="Accept">
-                                        </td>
-                                        <td>
-                                            <input name="status" class="btn btn-danger btn-sm" type="submit" value="Reject">
-                                        </td>
-                                        <td>
+                                        <td style="text-align: center">
+                                            <div class="mb-2">
+                                                <input name="status" class="btn btn-primary btn-sm" type="submit" value="Accept">
+                                            </div>
+                                            <div class="mb-2">
+                                                <input name="status" class="btn btn-danger btn-sm" type="submit" value="Reject">
+                                            </div>
                                             <input name="status" class="btn btn-success btn-sm" type="submit" value="Completed">
                                         </td>
                                     </form>
